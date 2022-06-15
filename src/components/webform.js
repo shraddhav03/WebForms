@@ -1,19 +1,43 @@
 import './Table.css';
 
+import React, { useState } from 'react';
+
+import userEvent from '@testing-library/user-event';
 
 function Webform() {
-    console.log("hhh");
+
+    const [enteredName, setName] = useState[{
+        name: " ", age: " ", email: " ", qualification: " ", number: " ", address: " "
+    }];
+
+    let name, value;
+
+    const handleInputs = (e) => {
+        console.log(e);
+        name = e.target.name;
+        value = e.target.value;
+
+        setName({ ...userEvent, [name]: value })
+    }
+
     return (
         <div>
-            <form action="https://www.google.com">
+            <form >
                 <h1>
                     Form
                 </h1>
                 <label>Name</label>
-                <input type="text" name="name" required />
+                <input
+                    type="text"
+                    name="name"
+                    value={enteredName.name}
+                    onchange={handleInputs}
+                />
                 <br />
                 <label>Age</label>
-                <input type="number" name="age" required />
+                <input type="number" name="age"
+                    value={enteredName.name}
+                    onchange={handleInputs} />
                 <br />
                 <label>Occupation</label>
                 <select>
@@ -24,39 +48,51 @@ function Webform() {
                 </select>
                 <br />
                 <label>Qualification</label>
-                <input type="text" required />
+                <input type="text"
+                    name="qualification"
+                    value={enteredName.name}
+                    onchange={handleInputs} />
                 <br />
                 <label>Mobile No.</label>
-                <input type="number" required />
+                <input type="number"
+                    name="number"
+                    value={enteredName.name}
+                    onchange={handleInputs} />
                 <br />
                 <label>Email ID</label>
-                <input type="Email" required />
+                <input type="Email"
+                    name="email"
+                    value={enteredName.name}
+                    onchange={handleInputs} />
                 <br />
                 <label>Gender</label>
                 <label><input type="radio" name="radiobutton" cheked="true" />Male</label>
                 <label><input type="radio" name="radiobutton" />Female</label>
                 <br />
                 <label>Address</label>
-                <input type="text" />
+                <input type="text"
+                    name="address"
+                    value={enteredName.name}
+                    onchange={handleInputs} />
                 <br />
 
-                <button type="submit">Submit</button>
+                <button type="submit" >Submit</button>
 
                 <button type="reset">Reset</button>
-                <div >
-                    <table>
-                        <tr>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Occupation</th>
-                            <th>Qulification</th>
-                            <th>Mobile No.</th>
-                            <th>Email</th>
-                            <th>Gender</th>
-                        </tr>
-                    </table>
-                </div>
             </form>
+            <div id="tablediv" >
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Occupation</th>
+                        <th>Qulification</th>
+                        <th>Mobile No.</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                    </tr>
+                </table>
+            </div>
         </div>
     );
 };

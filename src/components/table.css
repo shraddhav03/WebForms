@@ -3,12 +3,19 @@ th {
     border: 2px solid black;
     padding: 5px;
     text-align: center;
+
 }
 
 .table {
     margin-left: auto;
     margin-right: auto;
-    border: 2px solid black;
-    padding: 5px;
+    width: 100%;
 
+    align-items: center;
+    background-color: aquamarine;
+
+}
+
+#tablediv {
+    width: 100%;
 }
