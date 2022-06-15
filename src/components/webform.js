@@ -2,22 +2,25 @@ import './Table.css';
 
 import React, { useState } from 'react';
 
-import userEvent from '@testing-library/user-event';
+// import userEvent from '@testing-library/user-event';
 
 function Webform() {
 
-    const [enteredName, setName] = useState[{
-        name: " ", age: " ", email: " ", qualification: " ", number: " ", address: " "
-    }];
+    const [enteredName, setName] = useState({
+        name: "", age: "", email: "", qualification: "", number: "", address: ""
+    });
 
     let name, value;
 
     const handleInputs = (e) => {
         console.log(e);
+
         name = e.target.name;
         value = e.target.value;
 
-        setName({ ...userEvent, [name]: value })
+
+
+        setName({ ...enteredName, [name]: value })
     }
 
     return (
@@ -30,14 +33,18 @@ function Webform() {
                 <input
                     type="text"
                     name="name"
+                    id="name"
                     value={enteredName.name}
-                    onchange={handleInputs}
+                    onChange={handleInputs}
                 />
                 <br />
                 <label>Age</label>
-                <input type="number" name="age"
-                    value={enteredName.name}
-                    onchange={handleInputs} />
+                <input
+                    type="number"
+                    name="age"
+                    id="age"
+                    value={enteredName.age}
+                    onChange={handleInputs} />
                 <br />
                 <label>Occupation</label>
                 <select>
@@ -48,32 +55,40 @@ function Webform() {
                 </select>
                 <br />
                 <label>Qualification</label>
-                <input type="text"
+                <input
+                    type="text"
                     name="qualification"
-                    value={enteredName.name}
-                    onchange={handleInputs} />
+                    id="qualification"
+                    value={enteredName.qualification}
+                    onChange={handleInputs} />
                 <br />
                 <label>Mobile No.</label>
-                <input type="number"
+                <input
+                    type="number"
                     name="number"
-                    value={enteredName.name}
-                    onchange={handleInputs} />
+                    id="number"
+                    value={enteredName.number}
+                    onChange={handleInputs} />
                 <br />
                 <label>Email ID</label>
-                <input type="Email"
+                <input
+                    type="Email"
                     name="email"
-                    value={enteredName.name}
-                    onchange={handleInputs} />
+                    id="email"
+                    value={enteredName.email}
+                    onChange={handleInputs} />
                 <br />
                 <label>Gender</label>
-                <label><input type="radio" name="radiobutton" cheked="true" />Male</label>
+                <label><input type="radio" name="radiobutton" />Male</label>
                 <label><input type="radio" name="radiobutton" />Female</label>
                 <br />
                 <label>Address</label>
-                <input type="text"
+                <input
+                    type="text"
                     name="address"
-                    value={enteredName.name}
-                    onchange={handleInputs} />
+                    id="address"
+                    value={enteredName.address}
+                    onChange={handleInputs} />
                 <br />
 
                 <button type="submit" >Submit</button>
